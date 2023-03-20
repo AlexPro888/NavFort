@@ -112,6 +112,29 @@ public class LogInStepDefinitions {
         login.loginWithCredentials("","");
     }
 
+    @Then("The user can see user1 in the profile menu, after login")
+    public void the_user_can_see_user1_in_the_profile_menu_after_login() {
 
+       BrowserUtils.waitForVisibility(login.accountName,2);
+        String expectedUserName = login.accountName.getText();
+        String actualUserName = "user1";
+        Assert.assertEquals(expectedUserName, actualUserName);
 
-}
+    }
+
+    @Then("The user can see storemanager51 in the profile menu, after login")
+    public void the_user_can_see_storemanager51_in_the_profile_menu_after_login() {
+       BrowserUtils.waitForVisibility(login.accountName,2);
+        String expectedUserName = login.accountName.getText();
+        String actualUserName = "storemanager51";
+        Assert.assertEquals(expectedUserName, actualUserName);
+    }
+
+    @Then("The user can see salesmanager101 in the profile menu, after login")
+    public void the_user_can_see_salesmanager101_in_the_profile_menu_after_login() {
+        BrowserUtils.waitForVisibility(login.accountName,2);
+        String expectedUserName = login.accountName.getText();
+        String actualUserName = "salesmanager101";
+        Assert.assertEquals(expectedUserName, actualUserName);
+
+}}

@@ -42,6 +42,15 @@ Feature: Login
   Scenario: If username or/and password is empty then "Please fill out this field." message is displayed
     When both the username and password are empty
     Then The user gets "Please fill out this field" message in the username field
-
+@smoke
     Scenario: The user can see his own "username" (what he types in the username field) in the profile menu, after login
-      When
+      When The user logs in as a driver
+      Then The user can see user1 in the profile menu, after login
+@smoke
+  Scenario: The user can see his own "username" (what he types in the username field) in the profile menu, after login
+    When The user logs in as a sales manager
+    Then The user can see storemanager51 in the profile menu, after login
+@smoke
+  Scenario: The user can see his own "username" (what he types in the username field) in the profile menu, after login
+    When The user logs in as a sales manager
+    Then The user can see salesmanager101 in the profile menu, after login
