@@ -2,13 +2,22 @@ package cydeo.step_definitions;
 
 import cydeo.utilities.Driver;
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+import java.util.concurrent.TimeUnit;
+
 public class Hooks {
 
+    @Before
+    public void setUp(){
+        System.out.println("\tthis is coming from BEFORE");
+        Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        Driver.getDriver().manage().window().maximize();
 
+    }
     @After
     public void teardownScenario(Scenario scenario){
 
